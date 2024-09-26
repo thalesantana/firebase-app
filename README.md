@@ -16,8 +16,8 @@ pnpm install
 ```
 
 3. Configure o Firebase Admin SDK:
-- Crie uma conta de serviço no Firebase e baixe o arquivo JSON das credenciais.
-- Adicione um arquivo .env na raiz da pasta server com as seguintes credenciais:
+- Crie uma conta de serviço no [Firebase](https://firebase.google.com/?hl=pt-br) e baixe o arquivo JSON gerando uma nova [chave privada](https://console.firebase.google.com/u/0/project/fir-app-4b204/settings/serviceaccounts/adminsdk?hl=pt-br).
+- Adicione um arquivo .env na raiz da pasta server com as seguintes credenciais encontradas dentro do arquivo JSON gerado pela firebase:
 ```bash
 FIREBASE_PROJECT_ID=your_project_id
 FIREBASE_PRIVATE_KEY=your_private_key
@@ -37,7 +37,8 @@ pnpm run start
 pnpm install
 ```
 3. Configure as variáveis de ambiente:
-- Crie um arquivo .env na pasta frontend com o seguinte conteúdo:
+- Fazer o download do [snippet](https://support.google.com/firebase/answer/7015592?hl=pt-br#web&zippy=%2Cneste-artigo) de configuração para seu app da Web
+- Crie um arquivo .env na pasta frontend com o seguinte conteúdo com as informações encontradas no seu snippet:
 ```bash
 VUE_APP_FIREBASE_API_KEY="your_api_key"
 VUE_APP_FIREBASE_AUTH_DOMAIN="your_auth_domain"
