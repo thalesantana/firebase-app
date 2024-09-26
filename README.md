@@ -7,7 +7,7 @@ Este é um projeto de autenticação utilizando Firebase, Node.js, TypeScript e 
 1. **Clone o repositório**:
  ```bash
  git clone https://github.com/thalesantana/firebase-app.git
- cd firebase-auth-app/server
+ cd firebase-app/server
  ```
    
 2. Instale as dependências:
@@ -55,17 +55,20 @@ pnpm run serve
 # Uso
 - Acesse a aplicação no navegador em http://localhost:8080.
 - Registre um novo usuário ou faça login utilizando email e senha, Google, telefone ou GitHub.
+  
 # Estrutura de Arquivos
+
 ## Backend
 - src/controllers/authController.ts: Controladores para as rotas de autenticação.
 - src/routes/authRoutes.ts: Definição das rotas de autenticação.
 - src/services/authService.ts: Lógica de negócios para autenticação.
 - src/index.ts: Configuração do servidor Express.
+  
 ## Frontend
 - src/components/UserRegister.vue: Componente para registro de usuários.
 - src/components/UserLogin.vue: Componente para login de usuários.
 - src/main.ts: Configuração do Firebase e inicialização da aplicação Vue.
-- 
+  
 # Contribuição
 Sinta-se à vontade para contribuir com este projeto. Faça um fork do repositório, crie um branch para suas alterações e envie um pull request.
 
