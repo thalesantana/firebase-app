@@ -6,6 +6,7 @@
       <input v-model="password" type="password" placeholder="Password" />
       <button type="submit">Login</button>
     </form>
+    <span v-if="successMessage" class="success-message">{{ successMessage }}</span>
     <button @click="loginWithGoogle">Login with Google</button>
     <input v-model="phoneNumber" type="text" placeholder="Phone Number" />
     <div id="recaptcha-container"></div>
@@ -25,13 +26,13 @@ export default defineComponent({
     const email = ref('');
     const password = ref('');
     const phoneNumber = ref('');
+    const successMessage = ref('');
     const auth = getAuth();
 
     const login = async () => {
       try {
-        const response = await api.post('/auth/login', { email: email.value, password: password.value });
-        alert('User logged in!');
-        console.log(response.data);
+        await api.post('/auth/login', { email: email.value, password: password.value });
+        successMessage.value = 'User registered successfully!';
       } catch (error) {
         if (axios.isAxiosError(error)) {
           alert(error.response?.data.message);
@@ -106,7 +107,8 @@ export default defineComponent({
       login,
       loginWithGoogle,
       loginWithPhone,
-      loginWithGithub
+      loginWithGithub,
+      successMessage
     };
   }
 });

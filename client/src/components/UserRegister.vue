@@ -1,4 +1,3 @@
-<!-- src/components/Register.vue -->
 <template>
   <div>
     <h2>Register</h2>
@@ -7,6 +6,7 @@
       <input v-model="password" type="password" placeholder="Password" />
       <button type="submit">Register</button>
     </form>
+    <span v-if="responseMessage" class="success-message">{{ responseMessage }}</span>
   </div>
 </template>
 
@@ -19,6 +19,7 @@ export default defineComponent({
   setup() {
     const email = ref('');
     const password = ref('');
+    const responseMessage = ref('');
 
     const register = async () => {
       try {
@@ -26,11 +27,10 @@ export default defineComponent({
           email: email.value,
           password: password.value
         });
-        alert('User registered!');
-        console.log(response.data);
+        responseMessage.value =response.data.message;
       } catch (error) {
         if (axios.isAxiosError(error)) {
-          alert(error.response?.data.message);
+          responseMessage.value =error.response?.data.error;
         } else {
           alert('An unexpected error occurred');
         }
@@ -40,8 +40,16 @@ export default defineComponent({
     return {
       email,
       password,
+      responseMessage,
       register
     };
   }
 });
 </script>
+
+<style>
+.success-message {
+  color: green;
+  font-weight: bold;
+}
+</style>
